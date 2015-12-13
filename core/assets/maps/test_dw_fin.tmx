@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="400" height="100" tilewidth="16" tileheight="16" nextobjectid="216">
+ <tileset firstgid="1" name="final_patterns" tilewidth="16" tileheight="16" tilecount="100">
+  <image source="all_withoutdot.png" width="160" height="160"/>
+ </tileset>
+ <layer name="background" width="400" height="100">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <layer name="platform" width="400" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt3ctu5EQUBuBELCPWzIYNu4EXQrz/gzAtYWGKKtfVZVf7+ySLyaTT9gTp/H3qYn98AAAAUOrz6gsAYElfV18AwAN9/XN8Bn9e6TO9/ACYL8yMfY7scyX8fvja2Oti71Vyjq/Ezx1dBwBz7evwUQ6ENTvsWWJZkOprajLj6Hr2rwVgrpram6r7tT1DaU6kvo6NuQEwV0vtjWVErgfJZUgqU476oP0BwFw9tfd75uvW1+TID4DrrZ4f258BmEt+ANCiZ+3S1fmxnw8BYK7S2luyRje1PyS15rbktalrDs8LwFy5sZ8rx4dS5/394/95BsBcR3srrq7LqfyIrf8FgM0fib8P88P8OQB7pf2H/ABgz/gVAC3MnwPQwvgVAC3MnwNQ6ygXzH8AEJPrK/QfAIRKc0F+ALBXkwl32ScPwPVq+gn3bwd4ltjzA1uywPgVwLOMqvfWXwE8y4j88PxBgOcZ0S8YuwJ4npp1ubkDgGfIrbc1lwFATK5n0FMAECpZK7XfE6gXAeCltrewPheAl9axKWNaAM8mPwBose31qx2Pkh8AxO599flxnC3mPwCeq2cuXH4APFPvWlz5AfAso9bfmv8AeI6R+zb0HwDPMbJn0H8APEeuZ/gMjthaLM/3AHieo5q/zwcA2CvJhtb9hAC8r5rewhgVABv3KAGgRe24lPwAYFMzR24OBODZwnW3pXPk+g+AZyndq5HLEfkBsJbU3r1wf1/4vf1rRl0HAOuI5UEqK86+DgDWcZe6rf8AWMvMun10rrvkGABlzsiP/bhXmAup8+k/ANbS+7k/9RzzTWkuyA+AtbTmR+k9dEvXaBm/AlhLTX/Q8jwO+QHwns4eN6rpUwBYx9mf+0v2j4zchwjAHDP2BabyI9z7DsA6Zo1fpe59Mvo+KADMMWP8avtv6l4pAKwntmdj9PsD8H7O7gOsywV4T7k5id45bvkB8J5qnzFbez/3M8fGALhOa20v/bmafAJgHWfnR885ALgv+QFAi9Z1V/ID4Nn0HwC0kB8AtOh5ftTZ5wDgvo5qe2pPYe1ewpL8+LrBAUC5XH6Ee9Fb7pdVco6r67csAahzVC/Dmtp6L5PY+9+5VutPAPK22vhX4nvhfddbnoEevnbFerziNQOc6ejz9Z8f/82NMEdqzpE71wr0JQD/yuVHbAyr9n7v71xrZQnwVGrfOLEerfUYMW4IcKaj+Q/q9OZF7Hkrsa8B7qD3c/Jd5gN+TRzvRn4Ad3FGvZ+dK1tWhOerzZAVxobkB3AXs2rmqBwJ5wbCeYKauYfU+9+Z/ADuYna97MmQmp8tyY5VMwTgDq6qlbXnbc2d3Nrj2HveYV7nlx/Hb5PPCVDjys/atb3ECN87rqNUmFHhutvw3xNbo3s0JgdwB1fXo9ycxeg9D7H82K6jV7jetlTsdxBbt2v/B3Ano+tR7djPT4PPn5PKj5fWuZVU7S9lThxY0dWfZ3+efL6j/Hgp+X2Ea79SWVLq6v8HAC1610L1jsnHxmhi+65Heb3ft+AIv19yvUe5UbtPXP8BrKj08/YZc7exGhzLj1Hnzq3n7fn58N9g/Ap4d1evv4qNBY3OkJK63/I+ubVSpeQHsKJUnTv73lG5+efY3vLRvUJNluR6jZ6sM/8BrKinzsaOcG7hW+f75ca0jnJo1pGau4n9LlK/H4DV/A04vi65
+  </data>
+ </layer>
+ <objectgroup name="Capa de Objetos 1">
+  <object id="4" name="suelo1" type="object" x="335" y="1392" width="97" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="6" name="suelo1" type="object" x="-0.333333" y="1376" width="337" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="7" name="suelo1" type="object" x="-0.666667" y="1392" width="16.3333" height="208.333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="8" name="suelo1" type="object" x="17" y="1584" width="303" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="9" name="suelo1" type="object" x="17" y="1584" width="303" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="11" name="suelo1" type="object" x="320" y="1488.67" width="97" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="12" name="suelo1" type="object" x="224" y="1520" width="64" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="13" name="suelo1" type="object" x="144" y="1536" width="47.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="14" name="suelo1" type="object" x="96.3333" y="1567.67" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="15" name="suelo1" type="object" x="416.333" y="1407.67" width="47.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="16" name="suelo1" type="object" x="448" y="1424.33" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="17" name="suelo1" type="object" x="480" y="1439.67" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="18" name="suelo1" type="object" x="496" y="1456" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="19" name="suelo1" type="object" x="5" y="1584.33" width="303" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="20" name="suelo1" type="object" x="399" y="1584" width="97" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="21" name="suelo1" type="object" x="480.333" y="1567.67" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="22" name="suelo1" type="object" x="448" y="1424.33" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="23" name="suelo1" type="object" x="495.667" y="1551.67" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="24" name="suelo1" type="object" x="448" y="1424.33" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="25" name="suelo1" type="object" x="495.667" y="1535.67" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="26" name="suelo1" type="object" x="511.333" y="1520.33" width="160" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="27" name="suelo1" type="object" x="511.667" y="1472.67" width="158.667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="28" name="suelo1" type="object" x="656.333" y="1456" width="31" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="29" name="suelo1" type="object" x="672.333" y="1440" width="31" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="30" name="suelo1" type="object" x="688" y="1424" width="31" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="31" name="suelo1" type="object" x="704" y="1407.67" width="303.667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="32" name="suelo1" type="object" x="784.667" y="1392" width="127.667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="33" name="suelo1" type="object" x="801.333" y="1375" width="94.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="34" name="suelo1" type="object" x="863.667" y="1424.67" width="127.667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="35" name="suelo1" type="object" x="895.333" y="1439.67" width="96.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="36" name="suelo1" type="object" x="863.667" y="1424.67" width="127.667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="37" name="suelo1" type="object" x="655.333" y="1537" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="38" name="suelo1" type="object" x="671.667" y="1551.67" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="39" name="suelo1" type="object" x="687.667" y="1567.67" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="40" name="suelo1" type="object" x="698" y="1584.33" width="189.333" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="41" name="suelo1" type="object" x="864" y="1568" width="67.3333" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="42" name="suelo1" type="object" x="911.667" y="1552" width="49.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="43" name="suelo1" type="object" x="943.333" y="1536" width="112" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="44" name="suelo1" type="object" x="911.667" y="1552" width="49.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="45" name="suelo1" type="object" x="960" y="1519.67" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="46" name="suelo1" type="object" x="1007.67" y="1424.67" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="47" name="suelo1" type="object" x="1024" y="1440" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="48" name="suelo1" type="object" x="1039.67" y="1456.67" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="49" name="suelo1" type="object" x="1055.67" y="1471.67" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="50" name="suelo1" type="object" x="1071.67" y="1488" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="51" name="suelo1" type="object" x="1087.67" y="1504.33" width="15.6667" height="31.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="52" name="suelo1" type="object" x="1039.67" y="1456.67" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="53" name="suelo1" type="object" x="1039.67" y="1552.33" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="54" name="suelo1" type="object" x="1039.33" y="1568.33" width="63.3333" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="55" name="suelo1" type="object" x="1103.33" y="1424.67" width="15.6667" height="31.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="56" name="suelo1" type="object" x="1120" y="1440" width="79.3333" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="57" name="suelo1" type="object" x="1088.33" y="1408" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="58" name="suelo1" type="object" x="1072" y="1392.33" width="15.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="59" name="suelo1" type="object" x="1085.33" y="1584.67" width="113.333" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="60" name="suelo1" type="object" x="1184.33" y="1567.67" width="32.3333" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="61" name="suelo1" type="object" x="1200.33" y="1536.33" width="32.3333" height="30">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="62" name="suelo1" type="object" x="1216" y="1520.33" width="32.3333" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="63" name="suelo1" type="object" x="1232" y="1488.33" width="124" height="31.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="64" name="suelo1" type="object" x="1329" y="1472.33" width="47" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="65" name="suelo1" type="object" x="1360" y="1456.67" width="31.3333" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="66" name="suelo1" type="object" x="1424.67" y="1456.33" width="31.3333" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="67" name="suelo1" type="object" x="1489" y="1456" width="31.3333" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="68" name="suelo1" type="object" x="1552.67" y="1456.33" width="15.3333" height="146.333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="69" name="suelo1" type="object" x="1568.67" y="1456.67" width="175.333" height="31">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="70" name="suelo1" type="object" x="1376.33" y="1472.67" width="15" height="137">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="71" name="suelo1" type="object" x="1727" y="1344.33" width="17.3333" height="80">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="72" name="suelo1" type="object" x="1328" y="1343.67" width="399" height="32.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="73" name="suelo1" type="object" x="1280.33" y="1327.67" width="62.6667" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="74" name="suelo1" type="object" x="1201" y="1312.33" width="95" height="14.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="75" name="suelo1" type="object" x="1183.67" y="1296" width="31.6667" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="76" name="suelo1" type="object" x="1104.33" y="1280" width="95.3333" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="77" name="suelo1" type="object" x="1056" y="1263.67" width="63.6667" height="16.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="78" name="suelo1" type="object" x="544.333" y="1247.67" width="527.333" height="15.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="79" name="suelo1" type="object" x="512.667" y="1263.67" width="47.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="80" name="suelo1" type="object" x="480.667" y="1280" width="47.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="81" name="suelo1" type="object" x="464.667" y="1296" width="31.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="82" name="suelo1" type="object" x="432" y="1312" width="48.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="83" name="suelo1" type="object" x="399.667" y="1327.67" width="48.6667" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="84" name="suelo1" type="object" x="399" y="1124.67" width="16.6667" height="202.667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="85" name="suelo1" type="object" x="128.333" y="1327.33" width="111" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="86" name="suelo1" type="object" x="112" y="1248.67" width="111" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="87" name="suelo1" type="object" x="111.333" y="1264.67" width="17.6667" height="46.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="88" name="suelo1" type="object" x="30.3333" y="1312.67" width="17.6667" height="46.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="89" name="suelo1" type="object" x="13.6667" y="1280.33" width="17.6667" height="46.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="90" name="suelo1" type="object" x="-1.66667" y="1121.67" width="17" height="174.667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="91" name="suelo1" type="object" x="14.3333" y="1071.33" width="17.6667" height="65.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="92" name="suelo1" type="object" x="29.3333" y="1072" width="17.6667" height="48.3333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="93" name="suelo1" type="object" x="47.6667" y="1104" width="144" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="94" name="suelo1" type="object" x="176" y="1119.67" width="63.6667" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="95" name="suelo1" type="object" x="224" y="1135.67" width="16.3333" height="129">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="96" name="suelo1" type="object" x="-2.33333" y="883.667" width="17.6667" height="192">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="97" name="suelo1" type="object" x="14.6667" y="880.333" width="161" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="98" name="suelo1" type="object" x="110.667" y="864.333" width="161" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="99" name="suelo1" type="object" x="159.5" y="976.333" width="65.1667" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="100" name="suelo1" type="object" x="224.5" y="959.833" width="65.1667" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="101" name="suelo1" type="object" x="257" y="945.333" width="95" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="102" name="suelo1" type="object" x="335.5" y="928.333" width="65" height="15.6667">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="103" name="suelo1" type="object" x="385" y="943.333" width="14.5" height="207.167">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="104" name="suelo1" type="object" x="401.5" y="961.5" width="14.5" height="94">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="105" name="suelo1" type="object" x="432.5" y="910.5" width="14.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="106" name="suelo1" type="object" x="448" y="928" width="14.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="107" name="suelo1" type="object" x="417" y="992.5" width="14.5" height="78.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="108" name="suelo1" type="object" x="432.5" y="1039" width="95" height="33">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="109" name="suelo1" type="object" x="524.5" y="1007.5" width="36" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="110" name="suelo1" type="object" x="496.5" y="1023.5" width="63.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="111" name="suelo1" type="object" x="544.5" y="770.5" width="15.5" height="236">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="112" name="suelo1" type="object" x="416" y="848.5" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="113" name="suelo1" type="object" x="320" y="832.5" width="112" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="114" name="suelo1" type="object" x="256" y="848.5" width="78.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="115" name="suelo1" type="object" x="352.5" y="816" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="116" name="suelo1" type="object" x="352" y="696.5" width="15.5" height="118.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="117" name="suelo1" type="object" x="496.5" y="754.5" width="62.5" height="13.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="118" name="suelo1" type="object" x="463.5" y="737" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="119" name="suelo1" type="object" x="479" y="720.5" width="193.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="120" name="suelo1" type="object" x="446.5" y="624.5" width="146" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="121" name="suelo1" type="object" x="416" y="639.5" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="122" name="suelo1" type="object" x="400.5" y="655.5" width="32" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="123" name="suelo1" type="object" x="368" y="671.5" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="124" name="suelo1" type="object" x="463.5" y="737" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="125" name="suelo1" type="object" x="336.5" y="688" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="126" name="suelo1" type="object" x="656.5" y="560.5" width="15.5" height="159.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="127" name="suelo1" type="object" x="625" y="559" width="47" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="128" name="suelo1" type="object" x="576" y="543" width="61.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="129" name="suelo1" type="object" x="418" y="607.5" width="61.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="130" name="suelo1" type="object" x="432" y="548.5" width="16.5" height="57.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="131" name="suelo1" type="object" x="447" y="510" width="16.5" height="48.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="132" name="suelo1" type="object" x="575.5" y="497.5" width="17" height="45">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="133" name="suelo1" type="object" x="586" y="495.5" width="183.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="134" name="suelo1" type="object" x="447" y="510" width="16.5" height="48.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="135" name="suelo1" type="object" x="463" y="479" width="16.5" height="48.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="136" name="suelo1" type="object" x="463" y="433.5" width="16.5" height="94">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="137" name="suelo1" type="object" x="476.5" y="431" width="114.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="138" name="suelo1" type="object" x="736.5" y="463.5" width="17" height="45">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="139" name="suelo1" type="object" x="591.5" y="415" width="17" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="140" name="suelo1" type="object" x="607" y="400" width="17" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="141" name="suelo1" type="object" x="622" y="210" width="17" height="189">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="142" name="suelo1" type="object" x="752.5" y="386" width="17" height="80.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="143" name="suelo1" type="object" x="735" y="384" width="17" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="144" name="suelo1" type="object" x="721" y="129" width="17" height="254.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="145" name="suelo1" type="object" x="160" y="209" width="479.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="146" name="suelo1" type="object" x="126.5" y="223" width="34.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="147" name="suelo1" type="object" x="3" y="240" width="124.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="148" name="suelo1" type="object" x="0" y="100" width="16" height="140">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="149" name="suelo1" type="object" x="14" y="95.5" width="181" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="150" name="suelo1" type="object" x="177" y="110.5" width="34.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="151" name="suelo1" type="object" x="208.5" y="127.5" width="528.5" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="159" name="Door" type="object" x="1727" y="1425.5" width="17.5" height="30.5">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;DOOR 1000 -1 1000;0 1000 108 90 108 90 1 59"/>
+   </properties>
+  </object>
+  <object id="166" name="spike1" type="object" x="321" y="1586" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 900 -1 1000;0 1000 20 99 20 99 1 0"/>
+   </properties>
+  </object>
+  <object id="167" name="spike2" type="object" x="335" y="1585.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 901 -1 1000;0 1000 21 99 21 99 1 0"/>
+   </properties>
+  </object>
+  <object id="168" name="spike3" type="object" x="351" y="1585.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 902 -1 1000;0 1000 22 99 22 99 1 0"/>
+   </properties>
+  </object>
+  <object id="169" name="spike4" type="object" x="367.5" y="1585.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 903 -1 1000;0 1000 23 99 23 99 1 0"/>
+   </properties>
+  </object>
+  <object id="170" name="spike5" type="object" x="383.5" y="1585.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 904 -1 1000;0 1000 24 99 24 99 1 0"/>
+   </properties>
+  </object>
+  <object id="171" name="spike6" type="object" x="975" y="1522.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 905 -1 1000;0 1000 61 95 61 95 1 0"/>
+   </properties>
+  </object>
+  <object id="172" name="spike7" type="object" x="989.5" y="1523" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 906 -1 1000;0 1000 62 95 62 95 1 0"/>
+   </properties>
+  </object>
+  <object id="173" name="spike8" type="object" x="1005.5" y="1523.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 907 -1 1000;0 1000 63 95 63 95 1 0"/>
+   </properties>
+  </object>
+  <object id="174" name="spike9" type="object" x="1022" y="1523" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 908 -1 1000;0 1000 64 95 64 95 1 0"/>
+   </properties>
+  </object>
+  <object id="175" name="spike10" type="object" x="1392.5" y="1584" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 909 -1 1000;0 1000 87 99 87 99 1 0"/>
+   </properties>
+  </object>
+  <object id="176" name="spike11" type="object" x="1408" y="1584.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 910 -1 1000;0 1000 88 99 88 99 1 0"/>
+   </properties>
+  </object>
+  <object id="177" name="spike12" type="object" x="1424" y="1584.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 911 -1 1000;0 1000 89 99 89 99 1 0"/>
+   </properties>
+  </object>
+  <object id="178" name="spike13" type="object" x="1440.5" y="1584.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 912 -1 1000;0 1000 90 99 90 99 1 0"/>
+   </properties>
+  </object>
+  <object id="179" name="spike14" type="object" x="1455" y="1585" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 913 -1 1000;0 1000 91 99 91 99 1 0"/>
+   </properties>
+  </object>
+  <object id="180" name="spike15" type="object" x="1471.5" y="1586" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 914 -1 1000;0 1000 92 99 92 99 1 0"/>
+   </properties>
+  </object>
+  <object id="181" name="spike16" type="object" x="1488" y="1585" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 915 -1 1000;0 1000 93 99 93 99 1 0"/>
+   </properties>
+  </object>
+  <object id="182" name="spike17" type="object" x="1504" y="1585" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 916 -1 1000;0 1000 94 99 94 99 1 0"/>
+   </properties>
+  </object>
+  <object id="183" name="spike18" type="object" x="1519.5" y="1585" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 917 -1 1000;0 1000 95 99 95 99 1 0"/>
+   </properties>
+  </object>
+  <object id="184" name="spike19" type="object" x="1535" y="1585" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 918 -1 1000;0 1000 96 99 96 99 1 0"/>
+   </properties>
+  </object>
+  <object id="185" name="spike20" type="object" x="31.5" y="1360" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 919 -1 1000;0 1000 2 85 2 85 1 0"/>
+   </properties>
+  </object>
+  <object id="186" name="spike20" type="object" x="31.5" y="1360" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 919 -1 1000;0 1000 2 85 2 85 1 0"/>
+   </properties>
+  </object>
+  <object id="187" name="spike21" type="object" x="112.5" y="1312.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 920 -1 1000;0 1000 7 82 7 82 1 0"/>
+   </properties>
+  </object>
+  <object id="188" name="spike22" type="object" x="113" y="1328.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 921 -1 1000;0 1000 7 83 7 83 1 0"/>
+   </properties>
+  </object>
+  <object id="189" name="spike23" type="object" x="32.5" y="1297" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;SPIKE 922 -1 1000;0 1000 2 81 2 81 1 0"/>
+   </properties>
+  </object>
+  <object id="190" name="suelo1" type="object" x="220.333" y="1266.17" width="17.6667" height="60.8333">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="191" name="greenblob1" type="object" x="112" y="1568" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GREENBLOB 100 -1 4000;0 500 7 98 19 98 2 31;500 2500 19 98 19 98 1 29;2500 4000 19 98 7 98 2 30 "/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="192" name="greenblob2" type="object" x="221.667" y="1503.67" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GREENBLOB 101 -1 800;0 200 14 94 17 94 2 31;200 800 17 94 14 94 1 30"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="193" name="guillotine1" type="object" x="960.333" y="1455.67" width="15" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GUILLOTINE 2000 -1 1500;0 500 60 91 60 94 2 46;500 1500 60 94 60 91 1 46"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="194" name="guillotine2" type="object" x="240.333" y="143.667" width="15" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GUILLOTINE 2001 -1 1500;0 500 15 9 15 12 2 46;500 1500 15 12 15 9 1 46"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="195" name="guillotine3" type="object" x="304" y="143.667" width="15" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GUILLOTINE 2002 -1 1300;0 500 19 9 19 12 2 46;500 1300 19 12 19 9 1 46"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="196" name="guillotine4" type="object" x="384.333" y="144" width="15" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GUILLOTINE 2003 -1 1100;0 300 24 9 24 12 2 46;300 1100 24 12 24 9 1 46"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="197" name="guillotine5" type="object" x="448.333" y="144.333" width="15" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GUILLOTINE 2004 -1 1200;0 400 28 9 28 12 2 46;400 1200 28 12 28 9 1 46"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="198" name="guillotine6" type="object" x="528.333" y="144" width="15" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;GUILLOTINE 2005 -1 1000;0 200 33 9 33 12 2 46;200 1000 33 12 33 9 1 46"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="205" name="purpleblob1" type="object" x="142" y="1521" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;PURPLEBLOB 200 -1 500;0 200 9 95 11 95 1 37;200 300 11 95 11 95 1 34;300 500 11 95 9 95 2 36"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="206" name="purpleblob2" type="object" x="400.667" y="1472" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;PURPLEBLOB 201 -1 800;0 200 25 92 20 92 1 36;200 300 20 92 20 92 1 34;300 500 20 92 25 92 2 37;500 800 25 92 25 92 1 35"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="207" name="wickedredmage1" type="object" x="796.333" y="1567.33" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;WICKEDREDMAGE 300 -1 4500;0 500 50 98 50 92 2 14;500 1100 50 92 54 97 1 14;1100 2000 54 97 54 97 1 10;2000 2500 54 97 53 92 2 26;2500 4000 53 92 45 98 2 14;4000 4500 45 98 50 98 1 13"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="208" name="wickedbullet1" type="object" x="796.333" y="1567.33" width="8" height="8">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;WICKEDBULLET 500 300 4500;0 500 0 0 0 0 1 40;500 800 50 92 44 92 1 40;800 4500 0 0 0 0 1 40"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="209" name="player" type="object" x="724.333" y="1568" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="DynamicBody"/>
+    <property name="density" value="20"/>
+    <property name="linearVelocityX" value="0"/>
+    <property name="linearVelocityY" value="0"/>
+    <property name="restitution" value="0"/>
+    <property name="userData" value="player;01;"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="211" name="player" type="object" x="879.667" y="1551.33" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="DynamicBody"/>
+    <property name="density" value="20"/>
+    <property name="linearVelocityX" value="0"/>
+    <property name="linearVelocityY" value="0"/>
+    <property name="restitution" value="0"/>
+    <property name="userData" value="player;02;"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="215" name="player" type="object" x="1672.67" y="1439.33" width="16" height="16">
+   <properties>
+    <property name="bodyType" value="DynamicBody"/>
+    <property name="density" value="20"/>
+    <property name="linearVelocityX" value="0"/>
+    <property name="linearVelocityY" value="0"/>
+    <property name="restitution" value="0"/>
+    <property name="userData" value="player;03;"/>
+   </properties>
+   <ellipse/>
+  </object>
+ </objectgroup>
+</map>
