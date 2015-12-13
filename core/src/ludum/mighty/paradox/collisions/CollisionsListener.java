@@ -1,12 +1,12 @@
 package ludum.mighty.paradox.collisions;
 
-import ludum.mighty.paradox.enemy.NoPlayer;
-import ludum.mighty.paradox.player.Player;
-
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
+
+import ludum.mighty.paradox.enemy.NoPlayer;
+import ludum.mighty.paradox.player.Player;
 
 public class CollisionsListener implements ContactListener {
 
@@ -45,7 +45,8 @@ public class CollisionsListener implements ContactListener {
 			// Next level or victory!
 			player.setPlayerState(Player.STATE_VICTORY);
 		} else if ((noPlayer.getNoPlayerType() == noPlayer.TYPE_BULLET)
-				|| (noPlayer.getNoPlayerType() == noPlayer.TYPE_SPIKE)) {
+				|| (noPlayer.getNoPlayerType() == noPlayer.TYPE_SPIKE)
+				|| (noPlayer.getNoPlayerType() == noPlayer.TYPE_GUILLOTINE)) {
 			// Death
 
 			
