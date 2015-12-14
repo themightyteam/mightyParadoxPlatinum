@@ -24,7 +24,15 @@ public class CollisionsListener implements ContactListener {
 		if (contact.getFixtureA().getBody().getUserData() instanceof Player) {
 			player = (Player) contact.getFixtureA().getBody().getUserData();
 			player.setTouching(true);
-		} else if (contact.getFixtureB().getBody().getUserData() instanceof Player) {
+		}
+		if (contact.getFixtureB().getBody().getUserData() instanceof Player) {
+			if (player != null) {
+				// Paradox!!
+				player.setPlayerState(Player.STATE_PARADOX);
+				player = (Player) contact.getFixtureB().getBody().getUserData();
+				player.setPlayerState(Player.STATE_PARADOX);
+				return;
+			}
 			player = (Player) contact.getFixtureB().getBody().getUserData();
 			player.setTouching(true);
 		}

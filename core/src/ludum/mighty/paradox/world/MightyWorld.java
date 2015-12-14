@@ -436,7 +436,9 @@ public class MightyWorld {
 		Array<Body> bodies = new Array<Body>();
 		world.getBodies(bodies);
 		for (Body body : bodies) {
-			list.add(body);
+			if (body.getUserData() instanceof Player) {
+				list.add(body);
+			}
 		}
 		return list;
 	}

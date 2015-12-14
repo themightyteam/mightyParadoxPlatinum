@@ -264,6 +264,10 @@ public class ScreenLevel1 extends DefaultScreen {
 			System.out.println("You are dead :'(");
 			this.mightyGame.setScreen(new ScoreScreen(this.mightyGame));
 		}
+		if (this.gameWorld.getPlayerStatus() == Player.STATE_PARADOX) {
+			System.out.println("You created a paradox! :'(");
+			this.mightyGame.setScreen(new ParadoxScreen(this.mightyGame));
+		}
 		if (this.gameWorld.getPlayerStatus() == Player.STATE_VICTORY) {
 			System.out.println("Next Level! :D " + String.valueOf(this.currentLevel));
 			if (this.currentLevel >= 3) {

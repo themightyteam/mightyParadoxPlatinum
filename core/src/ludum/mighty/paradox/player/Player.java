@@ -12,7 +12,8 @@ public class Player {
 										// touching something (so it can jump)
 	public static final int STATE_PLAYING = 1;
 	public static final int STATE_DEAD = 2;
-	public static final int STATE_VICTORY = 3;
+	public static final int STATE_PARADOX = 3;
+	public static final int STATE_VICTORY = 4;
 
 	private boolean isReplaying;
 	private int activeInLevel; // the level where the user controls this player
