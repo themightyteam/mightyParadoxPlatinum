@@ -51,7 +51,9 @@ public class CollisionsListener implements ContactListener {
 		if (noPlayer.getNoPlayerType() == noPlayer.TYPE_DOOR) {
 
 			// Next level or victory!
-			player.setPlayerState(Player.STATE_VICTORY);
+			if (player.getButtonsPushed() >= 2) {
+				player.setPlayerState(Player.STATE_VICTORY);
+			}
 		} else if ((noPlayer.getNoPlayerType() == noPlayer.TYPE_WICKEDBULLET)
 				|| (noPlayer.getNoPlayerType() == noPlayer.TYPE_SPIKE)
 				|| (noPlayer.getNoPlayerType() == noPlayer.TYPE_BULLET)
@@ -60,6 +62,9 @@ public class CollisionsListener implements ContactListener {
 
 			
 			player.setPlayerState(Player.STATE_DEAD);
+		} else if (noPlayer.getNoPlayerType() == noPlayer.TYPE_LEVER) {
+			player.setButtonsPushed(player.getButtonsPushed() + 1);
+			// dispose button
 		}
 	}
 

@@ -22,6 +22,8 @@ public class Player {
 
 	RecordedStep previousStep;
 
+	int buttonsPushed;
+
 	private int playerState;
 	/**
 	 * 
@@ -31,6 +33,16 @@ public class Player {
 		steps = new Array<RecordedStep>(true, 7500);
 		previousStep = new RecordedStep(0, -1, -1, false);
 		steps.add(previousStep);
+
+		this.buttonsPushed = 0;
+	}
+
+	public int getButtonsPushed() {
+		return buttonsPushed;
+	}
+
+	public void setButtonsPushed(int buttonsPushed) {
+		this.buttonsPushed = buttonsPushed;
 	}
 
 	public Array<RecordedStep> getRecordedSteps() {
@@ -93,7 +105,7 @@ public class Player {
 				return step;
 			}
 		}
-		return null;
+		return new RecordedStep(timeEpoch, -1, -1, false);
 	}
 
 
