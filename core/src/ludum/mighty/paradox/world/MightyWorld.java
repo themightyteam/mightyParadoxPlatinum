@@ -430,8 +430,15 @@ public class MightyWorld {
 			}
 		}
 	}
-	
-	
-	
+
+	public ArrayList<Body> getPlayerBodysList() {
+		ArrayList<Body> list = new ArrayList<Body>();
+		Array<Body> bodies = new Array<Body>();
+		world.getBodies(bodies);
+		for (Body body : bodies) {
+			list.add(body);
+		}
+		return list;
+	}
 	
 }

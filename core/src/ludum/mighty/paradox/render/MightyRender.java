@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
 import ludum.mighty.paradox.assets.WholeGameAssets;
@@ -45,8 +47,31 @@ public class MightyRender
 	}
 
 	private void renderPlayer() {
-		// TODO Auto-generated method stub
+		this.renderer.getBatch().begin();
+		for (Body body : this.gameWorld.getPlayerBodysList()) {
+			TextureRegion playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_IDLE_RIGHT,
+					(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
 
+			Vector2 currentVelocity = body.getLinearVelocity();
+			float angle = currentVelocity.angle();
+			if (angle == 0) {
+				playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_IDLE_RIGHT,
+						(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+			} else if (angle == 180) {
+				playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_IDLE_LEFT,
+						(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+			} else if (((angle > 0) && (angle < 90)) || ((angle > 270) && (angle < 360))) {
+				playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_JUMPING_RIGHT,
+						(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+			} else if (((angle > 90) && (angle < 180)) || ((angle > 180) && (angle < 270))) {
+				playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_JUMPING_LEFT,
+						(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+			}
+
+			this.renderer.getBatch().draw(playerRegion, body.getWorldCenter().x - 0.5f, body.getWorldCenter().y - 0.5f,
+					playerRegion.getRegionWidth() / 16f, playerRegion.getRegionHeight() / 16f);
+		}
+		this.renderer.getBatch().end();
 	}
 
 	public void renderEnemies()
