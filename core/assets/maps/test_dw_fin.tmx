@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="400" height="100" tilewidth="16" tileheight="16" nextobjectid="218">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="400" height="100" tilewidth="16" tileheight="16" nextobjectid="221">
  <tileset firstgid="1" name="final_patterns" tilewidth="16" tileheight="16" tilecount="100">
   <image source="all_withoutdot.png" width="160" height="160"/>
  </tileset>
@@ -10,7 +10,7 @@
  </layer>
  <layer name="platform" width="400" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="Capa de Objetos 1">
@@ -983,7 +983,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="209" name="player" type="object" x="1120" y="1536" width="16" height="16">
+  <object id="209" name="player" type="object" x="656" y="1504" width="16" height="16">
    <properties>
     <property name="bodyType" value="DynamicBody"/>
     <property name="density" value="20"/>
@@ -1026,6 +1026,24 @@
    <properties>
     <property name="bodyType" value="StaticBody"/>
     <property name="userData" value="noplayer;01;LEVER 921 -1 1000;0 1000 83 92 83 92 1 0"/>
+   </properties>
+  </object>
+  <object id="218" name="button" type="object" x="1121" y="1424.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;LEVER 921 -1 1000;0 1000 70 89 70 89 1 0"/>
+   </properties>
+  </object>
+  <object id="219" name="button" type="object" x="1041" y="1440.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;LEVER 921 -1 1000;0 1000 65 90 65 90 1 0"/>
+   </properties>
+  </object>
+  <object id="220" name="button" type="object" x="1025" y="1424.5" width="14.5" height="15">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="userData" value="noplayer;01;LEVER 921 -1 1000;0 1000 64 89 64 89 1 0"/>
    </properties>
   </object>
  </objectgroup>

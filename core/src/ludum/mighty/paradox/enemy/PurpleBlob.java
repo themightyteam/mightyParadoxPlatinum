@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class PurpleBlob extends NoPlayer {
 
+	private boolean isTouched;
+
 	public PurpleBlob(int id, int dependentId, long duration,
 			ArrayList<String> otherPatternList) {
 		super(id, dependentId, duration, otherPatternList);
@@ -58,6 +60,14 @@ public class PurpleBlob extends NoPlayer {
 		
 		this.updatePatternSteps(Long.MAX_VALUE, stepList);
 		
+	}
+
+	public boolean isTouched() {
+		return isTouched;
+	}
+
+	public void setTouched(boolean isTouched) {
+		this.isTouched = isTouched;
 	}
 
 }

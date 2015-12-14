@@ -5,12 +5,15 @@ import java.util.ArrayList;
 
 public class Lever extends NoPlayer {
 
+	private boolean isTouched;
+
 	public Lever(int id, int dependentId, long duration,
 			ArrayList<String> otherPatternList) {
 		super(id, dependentId, duration, otherPatternList);
 		// TODO Auto-generated constructor stub
 		
 		this.noPlayerType = NoPlayer.TYPE_LEVER;
+		this.setTouched(false);
 	}
 
 	@Override
@@ -58,6 +61,14 @@ public class Lever extends NoPlayer {
 		
 		this.updatePatternSteps(Long.MAX_VALUE, stepList);
 		
+	}
+
+	public boolean isTouched() {
+		return isTouched;
+	}
+
+	public void setTouched(boolean isTouched) {
+		this.isTouched = isTouched;
 	}
 
 }

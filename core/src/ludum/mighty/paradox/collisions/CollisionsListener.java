@@ -5,7 +5,10 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 
+import ludum.mighty.paradox.enemy.GreenBlob;
+import ludum.mighty.paradox.enemy.Lever;
 import ludum.mighty.paradox.enemy.NoPlayer;
+import ludum.mighty.paradox.enemy.PurpleBlob;
 import ludum.mighty.paradox.player.Player;
 
 public class CollisionsListener implements ContactListener {
@@ -63,8 +66,14 @@ public class CollisionsListener implements ContactListener {
 			
 			player.setPlayerState(Player.STATE_DEAD);
 		} else if (noPlayer.getNoPlayerType() == noPlayer.TYPE_LEVER) {
-			player.setButtonsPushed(player.getButtonsPushed() + 1);
-			// dispose button
+			if (((Lever) noPlayer).isTouched() == false) {
+				player.setButtonsPushed(player.getButtonsPushed() + 1);
+				((Lever) noPlayer).setTouched(true);
+			}
+		} else if (noPlayer.getNoPlayerType() == noPlayer.TYPE_GREENBLOB) {
+			((GreenBlob) noPlayer).setTouched(true);
+		} else if (noPlayer.getNoPlayerType() == noPlayer.TYPE_PURPLEBLOB) {
+			((PurpleBlob) noPlayer).setTouched(true);
 		}
 	}
 

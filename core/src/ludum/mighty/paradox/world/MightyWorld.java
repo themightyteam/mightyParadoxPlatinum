@@ -13,7 +13,10 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 import ludum.mighty.paradox.collisions.CollisionsListener;
 import ludum.mighty.paradox.enemy.EnemyFactory;
+import ludum.mighty.paradox.enemy.GreenBlob;
+import ludum.mighty.paradox.enemy.Lever;
 import ludum.mighty.paradox.enemy.NoPlayer;
+import ludum.mighty.paradox.enemy.PurpleBlob;
 import ludum.mighty.paradox.player.Player;
 import ludum.mighty.paradox.player.RecordedStep;
 import ludum.mighty.paradox.settings.CommonSettings;
@@ -225,6 +228,17 @@ public class MightyWorld {
 		
 		for (NoPlayer enemy : this.enemyList)
 		{
+			if (enemy instanceof Lever) {
+				if (((Lever) enemy).isTouched() == true)
+					enemy.nowIsDead(this.timeEpoch);
+			} else if (enemy instanceof GreenBlob) {
+				if (((GreenBlob) enemy).isTouched() == true)
+					enemy.nowIsCharred(this.timeEpoch);
+			} else if (enemy instanceof PurpleBlob) {
+				if (((PurpleBlob) enemy).isTouched() == true)
+					enemy.nowIsCharred(this.timeEpoch);
+			}
+
 			enemy.update(this.timeEpoch);
 			/*
 			 * System.out.println("ID ENEMY "
