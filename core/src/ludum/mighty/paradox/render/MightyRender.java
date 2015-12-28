@@ -50,25 +50,38 @@ public class MightyRender
 	private void renderPlayer() {
 		this.renderer.getBatch().begin();
 		for (Body body : this.gameWorld.getPlayerBodysList()) {
-			if (((Player) body.getUserData()).isReplaying() == false) {
+			if (!((Player) body.getUserData()).isReplaying()) {
+				//Normal Player
 
-				TextureRegion playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_IDLE_RIGHT,
-						(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+				TextureRegion playerRegion = null;
+				if ((this.gameWorld.getPlayerStatus() == Player.STATE_DEAD)
+						|| (this.gameWorld.getPlayerStatus() == Player.STATE_PARADOX)
+						|| (this.gameWorld.getPlayerStatus() == Player.STATE_TIMEOUT))
+				{
+					playerRegion = this.gameAssets.getAnimation(WholeGameAssets.PLAYER_DEATH,
+							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+				}
+				else
+				{
 
-				Vector2 currentVelocity = body.getLinearVelocity();
-				float angle = currentVelocity.angle();
-				if (angle == 0) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_IDLE_RIGHT,
+					playerRegion = this.gameAssets.getAnimation(WholeGameAssets.PLAYER_IDLE_RIGHT,
 							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
-				} else if (angle == 180) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_IDLE_LEFT,
-							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
-				} else if (((angle > 0) && (angle < 90)) || ((angle > 270) && (angle < 360))) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_JUMPING_RIGHT,
-							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
-				} else if (((angle > 90) && (angle < 180)) || ((angle > 180) && (angle < 270))) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.PLAYER_JUMPING_LEFT,
-							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+
+					Vector2 currentVelocity = body.getLinearVelocity();
+					float angle = currentVelocity.angle();
+					if (angle == 0) {
+						playerRegion = this.gameAssets.getAnimation(WholeGameAssets.PLAYER_IDLE_RIGHT,
+								(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+					} else if (angle == 180) {
+						playerRegion = this.gameAssets.getAnimation(WholeGameAssets.PLAYER_IDLE_LEFT,
+								(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+					} else if (((angle > 0) && (angle < 90)) || ((angle > 270) && (angle < 360))) {
+						playerRegion = this.gameAssets.getAnimation(WholeGameAssets.PLAYER_JUMPING_RIGHT,
+								(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+					} else if (((angle > 90) && (angle < 180)) || ((angle > 180) && (angle < 270))) {
+						playerRegion = this.gameAssets.getAnimation(WholeGameAssets.PLAYER_JUMPING_LEFT,
+								(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
+					}
 				}
 
 				this.renderer.getBatch().draw(playerRegion, body.getWorldCenter().x - 0.5f,
@@ -76,22 +89,22 @@ public class MightyRender
 						playerRegion.getRegionHeight() / 16f);
 			} else {
 
-				TextureRegion playerRegion = this.gameAssets.getAnimation(this.gameAssets.GHOST_IDLE_RIGHT,
+				TextureRegion playerRegion = this.gameAssets.getAnimation(WholeGameAssets.GHOST_IDLE_RIGHT,
 						(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
 
 				Vector2 currentVelocity = body.getLinearVelocity();
 				float angle = currentVelocity.angle();
 				if (angle == 0) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.GHOST_IDLE_RIGHT,
+					playerRegion = this.gameAssets.getAnimation(WholeGameAssets.GHOST_IDLE_RIGHT,
 							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
 				} else if (angle == 180) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.GHOST_IDLE_LEFT,
+					playerRegion = this.gameAssets.getAnimation(WholeGameAssets.GHOST_IDLE_LEFT,
 							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
 				} else if (((angle > 0) && (angle < 90)) || ((angle > 270) && (angle < 360))) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.GHOST_JUMPING_RIGHT,
+					playerRegion = this.gameAssets.getAnimation(WholeGameAssets.GHOST_JUMPING_RIGHT,
 							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
 				} else if (((angle > 90) && (angle < 180)) || ((angle > 180) && (angle < 270))) {
-					playerRegion = this.gameAssets.getAnimation(this.gameAssets.GHOST_JUMPING_LEFT,
+					playerRegion = this.gameAssets.getAnimation(WholeGameAssets.GHOST_JUMPING_LEFT,
 							(float) ((this.gameWorld.getTimeEpoch() % 1000) / 1000.0));
 				}
 
@@ -113,8 +126,10 @@ public class MightyRender
 		{
 			if (enemy.getAnimation() > 0)
 			{	
+
 				TextureRegion enemyRegion = this.gameAssets.getAnimation(
-						enemy.getAnimation(), (float) ((this.gameWorld.getTimeEpoch() % 1000)/1000.0));
+						enemy.getAnimation(), (float) ((this.gameWorld.getTimeEpoch() % 1000)/1000.0));			
+
 
 				if (enemyRegion != null)
 					this.renderer.getBatch().draw(enemyRegion, enemy.getCurrentX(),
@@ -132,7 +147,8 @@ public class MightyRender
 		this.renderer.render();
 		this.renderEnemies();
 		this.renderPlayer();
-		this.box2DRenderer.render(this.gameWorld.getWorld(), this.guiCam.combined);
+		// this.box2DRenderer.render(this.gameWorld.getWorld(),
+		// this.guiCam.combined);
 	}
 
 

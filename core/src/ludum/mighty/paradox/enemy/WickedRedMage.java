@@ -17,6 +17,7 @@ public class WickedRedMage extends NoPlayer {
 	public void nowIsDead(long newTime) {
 		// TODO Auto-generated method stub
 		
+		/*
 		String deathPattern = MessageFormat.format("{0} {1} {2} {3} {4} {5} {6} {7}", 
 				new Object [] {
 				Long.toString(newTime),
@@ -28,10 +29,21 @@ public class WickedRedMage extends NoPlayer {
 				Integer.toString(1),
 				Integer.toString(93)
 				
-		} );
+		} );*/
+		
+		String deathPattern = Long.toString(newTime)+" "+
+				Long.toString(newTime + 1750)+" "+
+				Float.toString(this.currentX)+" "+
+				Float.toString(this.currentY)+" "+
+				Float.toString(this.currentX)+" "+
+				Float.toString(this.currentY)+" "+
+				Integer.toString(1)+" "+
+				Integer.toString(93);
 		
 		ArrayList<String> stepList = new ArrayList<String>();
 		stepList.add(deathPattern);
+		stepList.add(Long.toString(newTime + 1750)+" "+Long.toString(Long.MAX_VALUE)+" 0 0 0 0 1 92");
+		
 		
 		this.updatePatternSteps(Long.MAX_VALUE, stepList);
 		
@@ -41,7 +53,7 @@ public class WickedRedMage extends NoPlayer {
 	public void nowIsCharred(long newTime) {
 		// TODO Auto-generated method stub
 		
-		String deathPattern = MessageFormat.format("{0} {1} {2} {3} {4} {5} {6} {7}", 
+		/*String deathPattern = MessageFormat.format("{0} {1} {2} {3} {4} {5} {6} {7}", 
 				new Object [] {
 				Long.toString(newTime),
 				Long.toString(newTime + 1750),
@@ -50,12 +62,24 @@ public class WickedRedMage extends NoPlayer {
 				Float.toString(this.currentX),
 				Float.toString(this.currentY),
 				Integer.toString(1),
-				Integer.toString(93)
+				Integer.toString(93),
+				Long.toString(Long.MAX_VALUE)
 				
-		} );
+		} );*/
+		
+		String deathPattern = Long.toString(newTime)+" "+
+				Long.toString(newTime + 1750)+" "+
+				Float.toString(this.currentX)+" "+
+				Float.toString(this.currentY)+" "+
+				Float.toString(this.currentX)+" "+
+				Float.toString(this.currentY)+" "+
+				Integer.toString(1)+" "+
+				Integer.toString(92);
 		
 		ArrayList<String> stepList = new ArrayList<String>();
 		stepList.add(deathPattern);
+		stepList.add(Long.toString(newTime + 1750)+" "+Long.toString(Long.MAX_VALUE)+" 0 0 0 0 1 92");
+		
 		
 		this.updatePatternSteps(Long.MAX_VALUE, stepList);
 		

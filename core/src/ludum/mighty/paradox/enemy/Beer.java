@@ -17,6 +17,7 @@ public class Beer extends NoPlayer {
 		// TODO Auto-generated method stub
 		
 		ArrayList<String> stepList = new ArrayList<String>();
+		stepList.add(Long.toString(newTime)+" "+Long.toString(Long.MAX_VALUE)+" 0 0 0 0 1 43");
 		
 		this.updatePatternSteps(Long.MAX_VALUE, stepList);
 		

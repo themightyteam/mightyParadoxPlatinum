@@ -3,17 +3,14 @@ package ludum.mighty.paradox.world;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
-
 import ludum.mighty.paradox.collisions.CollisionsListener;
+import ludum.mighty.paradox.enemy.Beer;
+import ludum.mighty.paradox.enemy.BreakableBlock;
+import ludum.mighty.paradox.enemy.Door;
 import ludum.mighty.paradox.enemy.EnemyFactory;
 import ludum.mighty.paradox.enemy.GreenBlob;
+import ludum.mighty.paradox.enemy.Jewel;
+import ludum.mighty.paradox.enemy.Key;
 import ludum.mighty.paradox.enemy.Lever;
 import ludum.mighty.paradox.enemy.NoPlayer;
 import ludum.mighty.paradox.enemy.PurpleBlob;
@@ -22,28 +19,39 @@ import ludum.mighty.paradox.player.RecordedStep;
 import ludum.mighty.paradox.settings.CommonSettings;
 import net.dermetfan.gdx.physics.box2d.Box2DMapObjectParser;
 
+import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.TimeUtils;
+
 public class MightyWorld {
 
 	private World world;
 	private CollisionsListener collisionListener;
-	
+
+	private Player player = null;
 	private ArrayList<NoPlayer> enemyList;
-	
+
 	long startEpoch;
-	
+
 	long timeEpoch;
 	long differenceEpoch; // difference between now and when the level is really
-							// played (in the future!!)
+	// played (in the future!!)
 	
+	long timeToFinish;
+
 	private int curentLevel;
 
 	//FIXME massive destruction only for debug (Hector stuff)
 	boolean massiveDeath = false;
 	boolean massiveCharred = false;
-	
+
 	private Integer mapWidth;
 	private Integer mapHeight;
-	
+
 	public Integer getMapWidth() {
 		return mapWidth;
 	}
@@ -65,16 +73,20 @@ public class MightyWorld {
 
 	}
 
-	public void init(TiledMap map, int level, Array<Array<RecordedStep>> allRecordedSteps) {
+	public void init(TiledMap map, int level, Array<Array<RecordedStep>> allRecordedSteps, long timeToFinish) {
 		this.curentLevel = level;
 
 		this.enemyList = new ArrayList<NoPlayer>();
 		
+		//Maximum time allowed to finish the level
+		this.timeToFinish = timeToFinish;
+
 		this.differenceEpoch = ((10 - this.curentLevel) * CommonSettings.SECONDS_PER_LEVEL) * 1000;
 		this.startEpoch = TimeUtils.millis();
-		System.out.println("start epoch " + String.valueOf(this.differenceEpoch));
+		// System.out.println("start epoch " +
+		// String.valueOf(this.differenceEpoch));
 		//Init physics here
-	
+
 		// create physics
 		this.world = new World(new Vector2(0, -10f), true);
 		this.collisionListener = new CollisionsListener();
@@ -83,7 +95,7 @@ public class MightyWorld {
 		// populate box2D with objects from the map
 		Box2DMapObjectParser parser = new Box2DMapObjectParser(1 / 16f);
 		parser.load(world, map);
-		
+
 		// print map objects
 		// based in
 		// https://bitbucket.org/dermetfan/somelibgdxtests/src/adac6846bf5cb74d413e23a6f538b35d9820486c/libgdx-utils/net/dermetfan/libgdx/box2d/Box2DMapObjectParser.java?at=default&fileviewer=file-view-default#Box2DMapObjectParser.java-567
@@ -122,12 +134,12 @@ public class MightyWorld {
 		// body.getPosition().y + "\tvelocity "
 		// + body.getLinearVelocity().x + " " + body.getLinearVelocity().y);
 		// }
-		
+
 		// Find objects in the world and assign them a new player or noplayer
 		// object. Only assign objects from this level or bellow
 		// removes objects from the other levels.
 
-		
+
 		// Print all recorded steps
 		// if (allRecordedSteps != null) {
 		// for (Array<RecordedStep> recordedSteps : allRecordedSteps) {
@@ -141,103 +153,195 @@ public class MightyWorld {
 		// }
 		// }
 		// }
-		 
-		 
-		 Array<Body> bodies = new Array<Body>();
-		 world.getBodies(bodies);
-		 for (Body body : bodies) {
-		 if (body.getUserData() instanceof String) {
+
+
+		Array<Body> bodies = new Array<Body>();
+		world.getBodies(bodies);
+		for (Body body : bodies) {
+			if (body.getUserData() instanceof String) {
 
 				StringTokenizer tokens = new StringTokenizer((String) body.getUserData(), ";");
 				String bodyType = tokens.nextToken();
-				
+
 				int bodyLevel = Integer.parseInt(tokens.nextToken());
 
 				if (bodyType.equals("player")) {
 					if (bodyLevel <= level) {
-						Player player = new Player();
+						this.player = new Player();
 						player.setPlayerState(Player.STATE_PLAYING);
 						player.setActiveInLevel(bodyLevel);
-						System.out.println("player found from level " + String.valueOf(bodyLevel));
+						// System.out.println("player found from level " +
+						// String.valueOf(bodyLevel));
 						if (bodyLevel < level) {
 							player.setReplaying(true);
 							player.setRecordedSteps(allRecordedSteps.get(bodyLevel - 1));
-							System.out.println("Ghost player with recorded steps: "
-									+ String.valueOf(player.getRecordedSteps().size));
+							// System.out.println("Ghost player with recorded
+							// steps: "
+							// +
+							// String.valueOf(player.getRecordedSteps().size));
 						} else {
 							player.setReplaying(false);
 						}
 						body.setUserData(player);
 						if (body.getUserData() instanceof Player) {
-							System.out.println(
-									"player found " + String.valueOf(((Player) body.getUserData()).getActiveInLevel()));
+							// System.out.println(
+							// "player found " + String.valueOf(((Player)
+							// body.getUserData()).getActiveInLevel()));
 						}
 					} else {
 						world.destroyBody(body);
 					}
-					
+
 				} else if (bodyType.equals("noplayer"))
 				{
 					if (bodyLevel <= level) {
-						
+
 						String enemyPattern = tokens.nextToken();
-						
+
 						while(tokens.hasMoreTokens())
 						{
 							enemyPattern = enemyPattern + ";" + tokens.nextToken();	
-									
+
 						}
-						
-						System.out.println("Enemy Pattern:"+enemyPattern);
-						
+
+						// System.out.println("Enemy Pattern:"+enemyPattern);
+
 						NoPlayer noPlayer = EnemyFactory.buildEnemy(enemyPattern);
-						
+
 						body.setUserData(noPlayer);
-						
+
 						this.enemyList.add(noPlayer);
-						
+
 					} else {
 						world.destroyBody(body);
 					}
 				}
-		 }
-		 }
+			}
+		}
 		MapProperties prop = map.getProperties();
 
 		this.mapWidth = prop.get("width", Integer.class);
 		this.mapHeight = prop.get("height", Integer.class);
 
-		 
+
 	}
-	
+
 	public void stepBox2D()
 	{
 		this.world.step(1f / 60f, 6, 2);
-		
-	}
-	
 
-	
+	}
+
+
+
 	//TODO: Hector stuff for debugging
 	public void updateTime()
 	{
 		this.timeEpoch = TimeUtils.millis() - startEpoch + this.differenceEpoch;
+		
+		if (this.timeEpoch > this.timeToFinish)
+		{
+			//Time-out
+			this.player.setPlayerState(Player.STATE_TIMEOUT);
+			
+		}
 	}
 
+
 	public void updateEnemyPosition() {
-		
+
 		for (NoPlayer enemy : this.enemyList)
 		{
 			if (enemy instanceof Lever) {
-				if (((Lever) enemy).isTouched() == true)
-					enemy.nowIsDead(this.timeEpoch);
+				if (((Lever) enemy).isTouched())
+				{
+					if (enemy.isAlive())
+						enemy.nowIsDead(this.timeEpoch);
+
+					((Lever) enemy).setTouched(false);
+
+					enemy.setAlive(false);
+				}
+
 			} else if (enemy instanceof GreenBlob) {
-				if (((GreenBlob) enemy).isTouched() == true)
-					enemy.nowIsCharred(this.timeEpoch);
+				if (((GreenBlob) enemy).isTouched())
+				{
+
+					if (enemy.isAlive())
+						enemy.nowIsDead(this.timeEpoch);
+
+					((GreenBlob) enemy).setTouched(false);
+
+					enemy.setAlive(false);
+				}
+				// System.out.println("Green dead");
 			} else if (enemy instanceof PurpleBlob) {
-				if (((PurpleBlob) enemy).isTouched() == true)
-					enemy.nowIsCharred(this.timeEpoch);
+				if (((PurpleBlob) enemy).isTouched())
+				{
+					if (enemy.isAlive())
+						enemy.nowIsDead(this.timeEpoch);
+					((PurpleBlob) enemy).setTouched(false);
+
+					enemy.setAlive(false);
+
+				}
+			} else if (enemy instanceof BreakableBlock) {
+				if (((BreakableBlock) enemy).isTouched())
+				{
+					if (enemy.isAlive())
+						enemy.nowIsDead(this.timeEpoch);
+					((BreakableBlock) enemy).setTouched(false);
+
+					enemy.setAlive(false);
+				}
+			} else if (enemy instanceof Beer)
+			{
+				if (((Beer) enemy).isTouched())
+				{
+					if (enemy.isAlive())
+					{
+						enemy.nowIsDead(this.timeEpoch);
+						enemy.setAlive(false);
+					}
+					((Beer) enemy).setTouched(false);
+				}
+			} else if (enemy instanceof Jewel)
+			{
+				if (((Jewel) enemy).isTouched())
+				{
+					if (enemy.isAlive())
+					{
+						enemy.nowIsDead(this.timeEpoch);
+						enemy.setAlive(false);
+					}
+					((Jewel) enemy).setTouched(false);
+				}
+			} else if (enemy instanceof Key)
+			{
+				if (((Key) enemy).isTouched())
+				{
+					if (enemy.isAlive())
+					{
+						enemy.nowIsDead(this.timeEpoch);
+						enemy.setAlive(false);
+					}
+					((Key) enemy).setTouched(false);
+				}
+			} else if (enemy instanceof Door)
+			{
+				if (this.player.getButtonsPushed() >= CommonSettings.LEVERS_TO_PUSH)
+				{
+
+					if (enemy.isAlive())
+					{
+						enemy.nowIsDead(this.timeEpoch);
+
+						enemy.setAlive(false);
+					}
+				}
 			}
+
+
 
 			enemy.update(this.timeEpoch);
 			/*
@@ -251,7 +355,7 @@ public class MightyWorld {
 			 */
 
 		}
-		
+
 		// Update position on world
 		Array<Body> bodies = new Array<Body>();
 		world.getBodies(bodies);
@@ -262,76 +366,76 @@ public class MightyWorld {
 				// System.out.println(
 				// "object moved to " + Integer.toString((int) ((NoPlayer)
 				// body.getUserData()).getCurrentX()));
-		
+
 			}
 		}
 
 	}
-	
+
 	public void setAllEnemiesDeath() {
 		// TODO Auto-generated method stub
 		if (!this.massiveDeath)
 		{
-		for (NoPlayer enemy : this.enemyList)
-		{
-			enemy.nowIsDead(this.timeEpoch);
-		}
-		
-		this.massiveDeath = true;
+			for (NoPlayer enemy : this.enemyList)
+			{
+				enemy.nowIsDead(this.timeEpoch);
+			}
+
+			this.massiveDeath = true;
 		}
 	}	
-	
-	
+
+
 	public void setAllEnemiesCharred() {
-		
+
 		if (!this.massiveCharred)
 		{
-		for (NoPlayer enemy : this.enemyList)
-		{
-			enemy.nowIsCharred(this.timeEpoch);
-		}
-		this.massiveCharred = true;
-		}
-		
-	}
-	
-	// returns only the active player (not from other levels)
-		private Body getPlayer() {
-			// playerbody should be a variable in mightyworld?
-			Array<Body> bodies = new Array<Body>();
-			world.getBodies(bodies);
-			for (Body body : bodies) {
-				if (body.getUserData() instanceof Player) {
-					if (((Player) body.getUserData()).isReplaying() == false)
-					return body;
-				}
+			for (NoPlayer enemy : this.enemyList)
+			{
+				enemy.nowIsCharred(this.timeEpoch);
 			}
-			return null;
+			this.massiveCharred = true;
 		}
 
+	}
 
-		public void updatePlayer(boolean up, boolean down, boolean left, boolean right, boolean fire) {
-			Vector2 maxVelocity = new Vector2(10, 10);
+	// returns only the active player (not from other levels)
+	private Body getPlayer() {
+		// playerbody should be a variable in mightyworld?
+		Array<Body> bodies = new Array<Body>();
+		world.getBodies(bodies);
+		for (Body body : bodies) {
+			if (body.getUserData() instanceof Player) {
+				if (((Player) body.getUserData()).isReplaying() == false)
+					return body;
+			}
+		}
+		return null;
+	}
+
+
+	public void updatePlayer(boolean up, boolean down, boolean left, boolean right, boolean fire) {
+		Vector2 maxVelocity = new Vector2(10, 10);
 		Vector2 impulse = new Vector2(6, 8);
-			Body playerBody = this.getPlayer();
-			Vector2 currentVelocity = playerBody.getLinearVelocity();
-			if (up) {
-				if (((Player) playerBody.getUserData()).isTouching() == true) {
+		Body playerBody = this.getPlayer();
+		Vector2 currentVelocity = playerBody.getLinearVelocity();
+		if (up) {
+			if (((Player) playerBody.getUserData()).isTouching() == true) {
 				currentVelocity = currentVelocity.add(0, impulse.y);
 				if (currentVelocity.y > maxVelocity.y)
 					currentVelocity.y = maxVelocity.y;
-					((Player) playerBody.getUserData()).setTouching(false);
-				}
+				((Player) playerBody.getUserData()).setTouching(false);
 			}
-			if (down) {
-				currentVelocity = currentVelocity.add(0, impulse.y * -1);
-				if (currentVelocity.y < maxVelocity.y * -1)
-					currentVelocity.y = maxVelocity.y * -1;
-			}
-			if ((left == right) || ((left == false) && (right == false))) {
-				currentVelocity = currentVelocity.sub(currentVelocity.x / 3, 0);
+		}
+		if (down) {
+			currentVelocity = currentVelocity.add(0, impulse.y * -1);
+			if (currentVelocity.y < maxVelocity.y * -1)
+				currentVelocity.y = maxVelocity.y * -1;
+		}
+		if ((left == right) || ((left == false) && (right == false))) {
+			currentVelocity = currentVelocity.sub(currentVelocity.x / 3, 0);
 
-			} else {
+		} else {
 			if (left) {
 				currentVelocity = currentVelocity.add(impulse.x * -1, 0);
 				if (currentVelocity.x < maxVelocity.x * -1)
@@ -342,71 +446,34 @@ public class MightyWorld {
 				if (currentVelocity.x > maxVelocity.x)
 					currentVelocity.x = maxVelocity.x;
 			}
-			}
+		}
 
-			playerBody.setLinearVelocity(currentVelocity);
+		playerBody.setLinearVelocity(currentVelocity);
 		((Player) playerBody.getUserData()).addRecordedStep(timeEpoch, playerBody.getWorldCenter().x - (float) 0.5,
 				playerBody.getWorldCenter().y - (float) 0.5, fire);
-		}
-
-
-		public float getCameraPositionX() {
-			Body playerBody = this.getPlayer();
-			float camPosX = (float) playerBody.getWorldCenter().x;
-			float camBorderX = ((float) CommonSettings.CAMERA_WIDTH) / 2;
-			if (camPosX < camBorderX)
-				return camBorderX;
-			if (camPosX > this.mapWidth - camBorderX)
-				return this.mapWidth - camBorderX;
-			return playerBody.getWorldCenter().x;
-		}
-
-		public float getCameraPositionY() {
-			Body playerBody = this.getPlayer();
-			float camPosY = (float) playerBody.getWorldCenter().y;
-			float camBorderY = ((float) CommonSettings.CAMERA_HEIGHT) / 2;
-			if (camPosY < camBorderY)
-				return camBorderY;
-			if (camPosY > this.mapHeight - camBorderY)
-				return this.mapHeight - camBorderY;
-			return playerBody.getWorldCenter().y;
-		}
-
-		public int getPlayerStatus() {
-			return ((Player) this.getPlayer().getUserData()).getPlayerState();
-		}	
-		
-	
-	public World getWorld() {
-		return world;
 	}
 
-	public void setWorld(World world) {
-		this.world = world;
+
+	public float getCameraPositionX() {
+		Body playerBody = this.getPlayer();
+		float camPosX = (float) playerBody.getWorldCenter().x;
+		float camBorderX = ((float) CommonSettings.CAMERA_WIDTH) / 2;
+		if (camPosX < camBorderX)
+			return camBorderX;
+		if (camPosX > this.mapWidth - camBorderX)
+			return this.mapWidth - camBorderX;
+		return playerBody.getWorldCenter().x;
 	}
 
-	public ArrayList<NoPlayer> getEnemyList() {
-		return enemyList;
-	}
-
-	public void setEnemyList(ArrayList<NoPlayer> enemyList) {
-		this.enemyList = enemyList;
-	}
-
-	public long getTimeEpoch() {
-		return timeEpoch;
-	}
-
-	public void setTimeEpoch(long timeEpoch) {
-		this.timeEpoch = timeEpoch;
-	}
-
-	public long getStartEpoch() {
-		return startEpoch;
-	}
-
-	public void setStartEpoch(long startEpoch) {
-		this.startEpoch = startEpoch;
+	public float getCameraPositionY() {
+		Body playerBody = this.getPlayer();
+		float camPosY = (float) playerBody.getWorldCenter().y;
+		float camBorderY = ((float) CommonSettings.CAMERA_HEIGHT) / 2;
+		if (camPosY < camBorderY)
+			return camBorderY;
+		if (camPosY > this.mapHeight - camBorderY)
+			return this.mapHeight - camBorderY;
+		return playerBody.getWorldCenter().y;
 	}
 
 	public Array<Array<RecordedStep>> getAllRecordedSteps() {
@@ -457,4 +524,55 @@ public class MightyWorld {
 		return list;
 	}
 	
+	
+	
+	//Getters and setters
+	
+	public int getPlayerStatus() {
+		return ((Player) this.getPlayer().getUserData()).getPlayerState();
+	}	
+
+
+	public World getWorld() {
+		return world;
+	}
+
+	public void setWorld(World world) {
+		this.world = world;
+	}
+
+	public ArrayList<NoPlayer> getEnemyList() {
+		return enemyList;
+	}
+
+	public void setEnemyList(ArrayList<NoPlayer> enemyList) {
+		this.enemyList = enemyList;
+	}
+
+	public long getTimeEpoch() {
+		return timeEpoch;
+	}
+
+	public void setTimeEpoch(long timeEpoch) {
+		this.timeEpoch = timeEpoch;
+	}
+
+	public long getStartEpoch() {
+		return startEpoch;
+	}
+
+	public void setStartEpoch(long startEpoch) {
+		this.startEpoch = startEpoch;
+	}
+
+	public long getTimeToFinish() {
+		return timeToFinish;
+	}
+
+	public void setTimeToFinish(long timeToFinish) {
+		this.timeToFinish = timeToFinish;
+	}
+
+
+
 }

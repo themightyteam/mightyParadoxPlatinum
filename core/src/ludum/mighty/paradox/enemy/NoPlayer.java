@@ -31,6 +31,16 @@ public abstract class NoPlayer {
 	
 	int noPlayerType;
 	
+	boolean isTouched = false;
+
+	public boolean isTouched() {
+		return isTouched;
+	}
+
+	public void setTouched(boolean isTouched) {
+		this.isTouched = isTouched;
+	}
+
 	int idEnemy;
 	int dependentId; //-1 if no dependency
 	ObjectPattern pattern;

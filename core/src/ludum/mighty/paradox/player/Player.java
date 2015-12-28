@@ -14,6 +14,7 @@ public class Player {
 	public static final int STATE_DEAD = 2;
 	public static final int STATE_PARADOX = 3;
 	public static final int STATE_VICTORY = 4;
+	public static final int STATE_TIMEOUT = 5; 
 
 	private boolean isReplaying;
 	private int activeInLevel; // the level where the user controls this player

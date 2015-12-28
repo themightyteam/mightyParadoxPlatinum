@@ -1,6 +1,5 @@
 package ludum.mighty.paradox.enemy;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 
 public class Door extends NoPlayer {
@@ -15,20 +14,24 @@ public class Door extends NoPlayer {
 	@Override
 	public void nowIsDead(long newTime) {
 
-		//open the door
-		String deathPattern = MessageFormat.format("{0} {1} {2} {3} {4} {5} {6} {7}", 
-				new Object [] {
-				Long.toString(newTime),
-				Long.toString(Long.MAX_VALUE),
-				Float.toString(this.currentX),
-				Float.toString(this.currentY),
-				Float.toString(this.currentX),
-				Float.toString(this.currentY),
-				Integer.toString(1),
-				Integer.toString(58)
+		/*
+		 * //open the door String deathPattern = MessageFormat.format(
+		 * "{0} {1} {2} {3} {4} {5} {6} {7}", new Object [] {
+		 * Long.toString(newTime), Long.toString(Long.MAX_VALUE),
+		 * Float.toString(this.currentX), Float.toString(this.currentY),
+		 * Float.toString(this.currentX), Float.toString(this.currentY),
+		 * Integer.toString(1), Integer.toString(58)
+		 * 
+		 * } );
+		 * 
+		 */
+
+		String deathPattern = Long.toString(newTime) + " " + Long.toString(Long.MAX_VALUE) + " "
+				+ Float.toString(this.currentX) + " " + Float.toString(this.currentY) + " "
+				+ Float.toString(this.currentX) + " " + Float.toString(this.currentY) + " " + 
+				Integer.toString(1) + " "+ Integer.toString(58);
+
 				
-		} );
-		
 		ArrayList<String> stepList = new ArrayList<String>();
 		stepList.add(deathPattern);
 		
@@ -39,6 +42,7 @@ public class Door extends NoPlayer {
 	@Override
 	public void nowIsCharred(long newTime) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
