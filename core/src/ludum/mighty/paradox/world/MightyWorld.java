@@ -452,42 +452,8 @@ public class MightyWorld {
 	 *            fire key touched.
 	 */
 	public void updatePlayer(boolean up, boolean down, boolean left, boolean right, boolean fire) {
-		Vector2 maxVelocity = new Vector2(10, 10);
-		Vector2 impulse = new Vector2(6, 8);
 		Body playerBody = this.getPlayer();
-		Vector2 currentVelocity = playerBody.getLinearVelocity();
-		if (up) {
-			if (((Player) playerBody.getUserData()).isTouching() == true) {
-				currentVelocity = currentVelocity.add(0, impulse.y);
-				if (currentVelocity.y > maxVelocity.y)
-					currentVelocity.y = maxVelocity.y;
-				((Player) playerBody.getUserData()).setTouching(false);
-			}
-		}
-		if (down) {
-			currentVelocity = currentVelocity.add(0, impulse.y * -1);
-			if (currentVelocity.y < maxVelocity.y * -1)
-				currentVelocity.y = maxVelocity.y * -1;
-		}
-		if ((left == right) || ((left == false) && (right == false))) {
-			currentVelocity = currentVelocity.sub(currentVelocity.x / 3, 0);
-
-		} else {
-			if (left) {
-				currentVelocity = currentVelocity.add(impulse.x * -1, 0);
-				if (currentVelocity.x < maxVelocity.x * -1)
-					currentVelocity.x = maxVelocity.x * -1;
-			}
-			if (right) {
-				currentVelocity = currentVelocity.add(impulse.x, 0);
-				if (currentVelocity.x > maxVelocity.x)
-					currentVelocity.x = maxVelocity.x;
-			}
-		}
-
-		playerBody.setLinearVelocity(currentVelocity);
-		((Player) playerBody.getUserData()).addRecordedStep(timeEpoch, playerBody.getWorldCenter().x - (float) 0.5,
-				playerBody.getWorldCenter().y - (float) 0.5, fire);
+		((Player) playerBody.getUserData()).updatePlayerPosition(playerBody, timeEpoch, up, down, left, right, fire);
 	}
 
 	/**
