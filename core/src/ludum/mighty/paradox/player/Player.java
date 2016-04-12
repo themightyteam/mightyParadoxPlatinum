@@ -1,5 +1,7 @@
 package ludum.mighty.paradox.player;
 
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
 
 /**
@@ -26,6 +28,9 @@ public class Player {
 	int buttonsPushed;
 
 	private int playerState;
+
+	Vector2 maxVelocity = new Vector2(10, 10);
+	Vector2 impulse = new Vector2(6, 8);
 	/**
 	 * 
 	 */
@@ -66,6 +71,62 @@ public class Player {
 			this.previousStep.x = x;
 			this.previousStep.y = y;
 		}
+	}
+
+	/**
+	 * @brief Updates player's Box2D body velocity and records the current
+	 *        position.
+	 * @param playerBody
+	 *            player's Box2D body.
+	 * @param timeEpoch
+	 *            current time.
+	 * @param upKeyPressed
+	 *            if up key is pressed.
+	 * @param downKeyPressed
+	 *            if down key is pressed.
+	 * @param leftKeyPressed
+	 *            if left key is pressed.
+	 * @param rightKeyPressed
+	 *            if right key pressed.
+	 * @param fireKeyPressed
+	 *            if fire key is pressed.
+	 */
+	public void updatePlayerPosition(Body playerBody, long timeEpoch, boolean upKeyPressed, boolean downKeyPressed,
+			boolean leftKeyPressed, boolean rightKeyPressed, boolean fireKeyPressed) {
+
+		Vector2 currentVelocity = playerBody.getLinearVelocity();
+		if (upKeyPressed) {
+			if (this.isTouching() == true) {
+				currentVelocity = currentVelocity.add(0, impulse.y);
+				if (currentVelocity.y > maxVelocity.y)
+					currentVelocity.y = maxVelocity.y;
+				this.setTouching(false);
+			}
+		}
+		if (downKeyPressed) {
+			currentVelocity = currentVelocity.add(0, impulse.y * -1);
+			if (currentVelocity.y < maxVelocity.y * -1)
+				currentVelocity.y = maxVelocity.y * -1;
+		}
+		if (leftKeyPressed == rightKeyPressed) {
+			currentVelocity = currentVelocity.sub(currentVelocity.x / 3, 0);
+
+		} else {
+			if (leftKeyPressed) {
+				currentVelocity = currentVelocity.add(impulse.x * -1, 0);
+				if (currentVelocity.x < maxVelocity.x * -1)
+					currentVelocity.x = maxVelocity.x * -1;
+			}
+			if (rightKeyPressed) {
+				currentVelocity = currentVelocity.add(impulse.x, 0);
+				if (currentVelocity.x > maxVelocity.x)
+					currentVelocity.x = maxVelocity.x;
+			}
+		}
+
+		playerBody.setLinearVelocity(currentVelocity);
+		this.addRecordedStep(timeEpoch, playerBody.getWorldCenter().x - (float) 0.5,
+				playerBody.getWorldCenter().y - (float) 0.5, fireKeyPressed);
 	}
 
 	public boolean isTouching() {
